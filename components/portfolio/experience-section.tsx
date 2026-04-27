@@ -28,19 +28,7 @@ const experiences = [
     ].join(" "),
   
     skills: ["Python", "Data Processing", "Automation", "Problem Solving"],
-  },
-  {
-    role: "Web Development Intern",
-    company: "SyntecxHub",
-    period: "April 2026 - May 2026",
-  description: [
-    "Selected as a Web Development Intern at SyntecxHub based on technical skills and project experience.",
-    "Worked on building responsive web interfaces using modern frontend technologies.",
-    "Gained hands-on exposure to real-world development workflows, debugging, and UI optimization."
-  ].join(" "),
-  
-  skills: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
-}
+  }
 ]
 
 export function ExperienceSection() {
