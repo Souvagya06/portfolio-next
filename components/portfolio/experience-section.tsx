@@ -6,6 +6,19 @@ import { Briefcase } from "lucide-react"
 
 const experiences = [
   {
+    role: "Full Stack & IoT Developer Intern",
+    company: "IEDC, Institute of Engineering and Management, Kolkata",
+    period: "Winter Internship 2025",
+    description: [
+      "Developed a Smart RFID-based Attendance Management System integrating IoT hardware with a full-stack web application.",
+      "Built a React.js frontend and Node.js + Express backend with SQLite database for real-time attendance tracking.",
+      "Implemented role-based authentication and data filtering with export functionality.",
+      "Integrated ESP32 with RFID RC522 module to automate attendance recording.",
+      "Collaborated in a team environment and managed code using Git and GitHub."
+    ].join(" "),
+    skills: ["React.js", "Node.js", "Express.js", "SQLite", "ESP32", "RFID", "Full Stack Development", "IoT"],
+  },
+  {
     role: "Web Developer Intern",
     company: "Pinnacle Labs",
     period: "Mar 2026 – Apr 2026",
@@ -19,7 +32,7 @@ const experiences = [
   },
   {
     role: "Python Development Intern",
-    company: "Pinnacle Labs",
+    company: "Cognifyz Technologies",
     period: "March 2026 – April 2026",
     description: [
       "Developed backend logic and automation scripts using Python for real-world problem solving.",
