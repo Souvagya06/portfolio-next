@@ -6,6 +6,14 @@ import { ProjectCard } from "./project-card"
 
 const featuredProjects = [
   {
+    title: "DevLens (AI Codebase Analyzer)",
+    description:
+      "AI-powered repository analysis platform that visualizes dependency graphs, identifies risky files, generates onboarding paths, and explains large codebases using Gemini AI.",
+    techStack: ["Node.js", "Express", "Gemini AI", "Groq AI", "D3.js", "Turso", "JWT"],
+    githubUrl: "https://github.com/Souvagya06/Dev-Lens",
+    liveUrl: "https://dev-lens-topaz.vercel.app",
+  },
+  {
     title: "StudyBuddy.AI",
     description:
       "AI-powered academic platform integrating Google Classroom, LLM-based difficulty prediction, assignment analysis, and AI doubt assistance for enhanced learning.",
@@ -68,7 +76,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-24 md:py-32 relative">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background pointer-events-none" /> 
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
