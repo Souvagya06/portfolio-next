@@ -228,7 +228,7 @@ export function ContactSection() {
                   size="lg"
                   className="w-full border-primary/50 hover:bg-primary/10"
                 >
-                  <a href="https://drive.google.com/file/d/1W-51kTQey7DlQMO88nXkDhYcMacOhqr7/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                  <a href="https://drive.google.com/drive/folders/1RmQuKlKL0E29sHuQP3mf1mSQYnIiMqbO?usp=sharing">
                     Souvagya's Resume
                   </a>
                 </Button>
