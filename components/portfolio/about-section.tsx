@@ -69,18 +69,11 @@ export function AboutSection() {
             className="glass rounded-2xl p-8 md:p-10 mb-12"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a passionate developer who bridges the gap between{" "}
-              <span className="text-foreground font-medium">artificial intelligence</span>,{" "}
-              <span className="text-foreground font-medium">full-stack development</span>, and{" "}
-              <span className="text-foreground font-medium">IoT systems</span>. My work focuses on
-              building real-world applications that make a tangible impact—from AI-powered
-              educational platforms to emergency response systems and underwater drones.
+              I'm a passionate <span className="text-foreground font-medium">AI and Full-Stack Developer</span> who enjoys building intelligent, scalable, and impactful software solutions. My interests span <span className="text-foreground font-medium">artificial intelligence</span>, <span className="text-foreground font-medium">backend engineering</span>, <span className="text-foreground font-medium">full-stack development</span>, and <span className="text-foreground font-medium">IoT systems</span>. From AI-powered educational platforms and construction safety solutions to underwater robotics, I love transforming innovative ideas into real-world applications.
             </p>
+
             <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-              I thrive on solving complex problems by combining cutting-edge technologies with
-              practical engineering. Whether it&apos;s integrating LLMs for intelligent assistance,
-              building responsive web applications, or programming embedded systems, I bring a
-              holistic approach to every project.
+              I thrive on solving challenging problems by combining modern AI technologies, scalable backend architectures, and embedded systems. I'm always exploring new technologies and building projects that create meaningful impact. Recently, I was selected as a <span className="text-foreground font-medium">Finalist at the Anvil Hackathon</span> organized by <span className="text-foreground font-medium">Scaler School of Technology</span>, where I collaborated with a team to develop an innovative AI-powered solution under tight deadlines.
             </p>
           </motion.div>
 
