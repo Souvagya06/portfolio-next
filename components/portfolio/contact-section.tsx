@@ -66,12 +66,12 @@ export function ContactSection() {
           transition={{ duration: 0.8 }}
         >
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div className="mb-14 grid gap-6 md:grid-cols-[1fr_0.8fr] md:items-end">
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-primary text-sm font-medium uppercase tracking-wider"
+              className="section-kicker"
             >
               Get In Touch
             </motion.span>
@@ -79,7 +79,7 @@ export function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="text-3xl md:text-4xl font-bold mt-4"
+              className="mt-4 text-4xl font-bold tracking-tight md:text-6xl"
             >
               Let&apos;s <span className="gradient-text">Connect</span>
             </motion.h2>
@@ -87,13 +87,13 @@ export function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
-              className="text-muted-foreground mt-4 max-w-md mx-auto"
+              className="mt-4 max-w-md text-muted-foreground md:justify-self-end"
             >
               Have a project in mind or want to collaborate? I&apos;d love to hear from you!
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             {/* Contact form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -101,7 +101,7 @@ export function ContactSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <form onSubmit={handleSubmit} className="glass rounded-2xl p-8">
+              <form onSubmit={handleSubmit} className="glass rounded-none border-t-2 border-t-primary p-8 md:p-10">
                 <div className="space-y-6">
                   <div>
                     <label
@@ -190,7 +190,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+                  className="space-y-6"
             >
               {contactLinks.map((link, index) => (
                 <motion.a
@@ -202,14 +202,14 @@ export function ContactSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 glass rounded-xl card-glow transition-all duration-300 hover:-translate-y-1 group"
+                  className="flex min-w-0 items-center gap-4 p-4 glass rounded-xl card-glow transition-all duration-300 hover:-translate-y-1 group"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
                     <link.icon className="text-primary" size={24} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-medium">{link.label}</p>
-                    <p className="text-sm text-muted-foreground">{link.username}</p>
+                    <p className="break-all text-sm text-muted-foreground">{link.username}</p>
                   </div>
                 </motion.a>
               ))}

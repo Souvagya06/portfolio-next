@@ -66,8 +66,8 @@ export function ProjectCard({
       className={`group relative ${featured ? "perspective-1000" : ""}`}
     >
       <div
-        className={`glass rounded-2xl overflow-hidden card-glow transition-all duration-300 h-full ${
-          featured ? "p-8" : "p-6"
+        className={`glass rounded-none overflow-hidden card-glow transition-all duration-300 h-full ${
+          featured ? "p-8 md:p-10" : "p-6"
         }`}
         style={{ transform: "translateZ(0)" }}
       >
@@ -75,8 +75,12 @@ export function ProjectCard({
         <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
         <div className="relative z-10">
+          <div className="mb-8 flex items-start justify-between gap-4">
+            <span className="font-mono text-xs text-primary">0{index + 1}</span>
+            <span className="h-px flex-1 bg-border/70" />
+          </div>
           <h3
-            className={`font-bold mb-3 group-hover:gradient-text transition-all duration-300 ${
+            className={`font-bold mb-4 group-hover:gradient-text transition-all duration-300 ${
               featured ? "text-2xl" : "text-xl"
             }`}
           >
@@ -91,11 +95,11 @@ export function ProjectCard({
             {description}
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="mb-8 flex flex-wrap gap-2">
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+                className="border border-border/80 px-3 py-1 text-xs font-medium text-secondary-foreground"
               >
                 {tech}
               </span>

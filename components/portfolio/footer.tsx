@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-12 border-t border-border/50">
+    <footer className="editorial-rule py-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <motion.div
@@ -16,7 +16,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <p className="text-2xl font-bold gradient-text mb-2">SK</p>
+            <p className="text-sm font-bold tracking-[0.18em] text-primary mb-2">SK / 2026</p>
             <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center md:justify-start">
               Made by Souvagya
             </p>

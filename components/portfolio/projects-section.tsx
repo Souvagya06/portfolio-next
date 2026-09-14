@@ -73,7 +73,7 @@ export function ProjectsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="projects" className="py-24 md:py-32 relative">
+    <section id="projects" className="py-24 md:py-36 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background pointer-events-none" /> 
 
@@ -85,12 +85,12 @@ export function ProjectsSection() {
           transition={{ duration: 0.8 }}
         >
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-primary text-sm font-medium uppercase tracking-wider"
+              className="section-kicker"
             >
               My Work
             </motion.span>
@@ -98,10 +98,11 @@ export function ProjectsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="text-3xl md:text-4xl font-bold mt-4"
+              className="mt-4 text-4xl font-bold tracking-tight md:text-6xl"
             >
               Featured <span className="gradient-text">Projects</span>
             </motion.h2>
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">Selected work across intelligent software, responsible automation, and connected machines.</p>
           </div>
 
           {/* Featured projects */}

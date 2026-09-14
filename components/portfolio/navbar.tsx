@@ -30,17 +30,18 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-3" : "py-5"
+        isScrolled ? "glass py-3 border-b border-primary/20" : "py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <motion.a
           href="#home"
-          className="text-xl font-bold gradient-text"
+          className="flex items-center gap-3 text-sm font-bold tracking-[0.18em] text-foreground"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          SK
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background">SK</span>
+          <span className="hidden sm:inline text-muted-foreground">SOUVAGYA / 2026</span>
         </motion.a>
 
         {/* Desktop Navigation */}
@@ -49,13 +50,13 @@ export function Navbar() {
             <motion.a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+              className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground hover:text-primary transition-colors relative group"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-2 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
             </motion.a>
           ))}
         </div>

@@ -70,12 +70,12 @@ export function ExperienceSection() {
           transition={{ duration: 0.8 }}
         >
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div className="mb-14 text-left">
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-primary text-sm font-medium uppercase tracking-wider"
+              className="section-kicker"
             >
               Experience
             </motion.span>
@@ -83,14 +83,14 @@ export function ExperienceSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="text-3xl md:text-4xl font-bold mt-4"
+              className="mt-4 text-4xl font-bold tracking-tight md:text-6xl"
             >
               My <span className="gradient-text">Journey</span>
             </motion.h2>
           </div>
 
           {/* Timeline */}
-          <div className="max-w-3xl mx-auto relative">
+          <div className="relative mx-auto w-full max-w-3xl overflow-hidden">
             {/* Timeline line */}
             <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-primary via-accent to-primary/20 md:-translate-x-1/2" />
 
@@ -110,7 +110,7 @@ export function ExperienceSection() {
                   className={`absolute w-4 h-4 rounded-full bg-primary glow top-1 -left-2 md:left-1/2 md:-translate-x-1/2`}
                 />
 
-                <div className="glass rounded-xl p-6 card-glow transition-all duration-300 hover:-translate-y-1">
+                <div className="glass rounded-none p-6 card-glow transition-all duration-300 hover:-translate-y-1">
                   <div
                     className={`flex items-center gap-3 mb-3 ${
                       index % 2 === 0 ? "md:flex-row-reverse" : ""

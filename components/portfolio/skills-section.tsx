@@ -49,12 +49,12 @@ export function SkillsSection() {
           transition={{ duration: 0.8 }}
         >
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-primary text-sm font-medium uppercase tracking-wider"
+              className="section-kicker"
             >
               Skills
             </motion.span>
@@ -62,7 +62,7 @@ export function SkillsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="text-3xl md:text-4xl font-bold mt-4"
+              className="mt-4 text-4xl font-bold tracking-tight md:text-6xl"
             >
               Technical <span className="gradient-text">Expertise</span>
             </motion.h2>
@@ -77,7 +77,7 @@ export function SkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                className="glass rounded-xl p-6 card-glow transition-all duration-300 hover:-translate-y-2"
+                className="glass rounded-none border-t-2 border-t-primary/50 p-6 card-glow transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
                   <category.icon className="text-primary" size={24} />

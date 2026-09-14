@@ -15,55 +15,32 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20"
     >
       <ParticleField />
-      
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/50 to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_35%,oklch(0.35_0.08_175_/_0.18),transparent_28%),linear-gradient(to_bottom,transparent,oklch(0.08_0.012_190_/_0.92))] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24">
           <div className="max-w-3xl text-center lg:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="inline-block px-4 py-2 mb-6 text-sm font-medium rounded-full glass text-primary">
-              Full Stack Developer | AI Systems Engineer
-            </span>
-          </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-8 flex items-center justify-center gap-3 lg:justify-start">
+              <span className="h-px w-10 bg-primary" />
+              <span className="section-kicker">Full stack / AI systems / IoT</span>
+            </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-balance leading-[0.98]"
-          >
-            Hi, I&apos;m{" "}
-            <span className="gradient-text">Souvagya Karmakar</span>
-          </motion.h1>
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="display-title mb-8 font-bold text-balance">
+              Souvagya<br /><span className="gradient-text">Karmakar.</span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl text-pretty"
-          >
-            Building intelligent systems that solve real-world problems
-          </motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mx-auto mb-9 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
+              Building intelligent systems that solve real-world problems, from AI-powered platforms to connected hardware that works in the physical world.
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-          >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }} className="mb-12 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground glow"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <a href="#projects">View Projects</a>
             </Button>
@@ -75,19 +52,14 @@ export function HeroSection() {
             >
               <a href="#contact">Contact Me</a>
             </Button>
-          </motion.div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex gap-6 justify-center lg:justify-start"
-          >
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="flex justify-center gap-5 lg:justify-start">
             <motion.a
               href="https://github.com/Souvagya06"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full glass text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
+              className="glass rounded-full p-3 text-muted-foreground transition-all hover:scale-110 hover:text-primary"
               whileHover={{ y: -3 }}
               aria-label="GitHub"
             >
@@ -97,7 +69,7 @@ export function HeroSection() {
               href="https://www.linkedin.com/in/souvagya-karmakar-4b818a389/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full glass text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
+              className="glass rounded-full p-3 text-muted-foreground transition-all hover:scale-110 hover:text-primary"
               whileHover={{ y: -3 }}
               aria-label="LinkedIn"
             >
@@ -105,19 +77,20 @@ export function HeroSection() {
             </motion.a>
             <motion.a
               href="mailto:souvagyakarmakar0712@gmail.com"
-              className="p-3 rounded-full glass text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
+              className="glass rounded-full p-3 text-muted-foreground transition-all hover:scale-110 hover:text-primary"
               whileHover={{ y: -3 }}
               aria-label="Email"
             >
               <Mail size={24} />
             </motion.a>
-          </motion.div>
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92, rotate: 3 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-end"
+            className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
           >
             <div className="profile-orbit absolute -inset-5 rounded-[2rem] border border-primary/20" />
             <div className="profile-orbit profile-orbit-delayed absolute -inset-10 rounded-[2.5rem] border border-accent/15" />
@@ -142,11 +115,10 @@ export function HeroSection() {
               </div>
             </div>
             <div className="absolute -bottom-5 -left-5 glass rounded-xl px-4 py-3 shadow-xl">
-              <p className="font-mono text-xs text-muted-foreground">01 / 05</p>
+              <p className="font-mono text-xs text-muted-foreground">AVAILABLE FOR WORK</p>
               <p className="mt-1 text-sm font-medium">AI + IoT systems</p>
             </div>
           </motion.div>
-        </div>
         </div>
       </div>
 
