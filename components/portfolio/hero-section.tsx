@@ -1,15 +1,41 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useSpring } from "framer-motion"
 import { Github, Linkedin, ArrowDown, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import dynamic from "next/dynamic"
 import Image from "next/image"
+import { useEffect } from "react"
 
 const ParticleField = dynamic(
   () => import("./particle-field").then((mod) => mod.ParticleField),
   { ssr: false }
 )
+
+function CursorTrail() {
+  const x = useMotionValue(-100)
+  const y = useMotionValue(-100)
+  const smoothX = useSpring(x, { stiffness: 220, damping: 28, mass: 0.25 })
+  const smoothY = useSpring(y, { stiffness: 220, damping: 28, mass: 0.25 })
+
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      x.set(event.clientX)
+      y.set(event.clientY)
+    }
+
+    window.addEventListener("pointermove", handlePointerMove)
+    return () => window.removeEventListener("pointermove", handlePointerMove)
+  }, [x, y])
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      className="cursor-trail fixed left-0 top-0 z-[60] h-3 w-3 rounded-full bg-primary shadow-[0_0_18px_6px_oklch(0.82_0.15_175_/_0.2)] pointer-events-none"
+      style={{ x: smoothX, y: smoothY, translateX: "-50%", translateY: "-50%" }}
+    />
+  )
+}
 
 export function HeroSection() {
   return (
@@ -17,6 +43,7 @@ export function HeroSection() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20"
     >
+      <CursorTrail />
       <ParticleField />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_35%,oklch(0.35_0.08_175_/_0.18),transparent_28%),linear-gradient(to_bottom,transparent,oklch(0.08_0.012_190_/_0.92))] pointer-events-none" />
 
@@ -114,7 +141,7 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-5 -left-5 glass rounded-xl px-4 py-3 shadow-xl">
+            <div className="absolute -right-5 top-5 glass rounded-xl px-4 py-3 shadow-xl">
               <p className="font-mono text-xs text-muted-foreground">AVAILABLE FOR WORK</p>
               <p className="mt-1 text-sm font-medium">AI + IoT systems</p>
             </div>

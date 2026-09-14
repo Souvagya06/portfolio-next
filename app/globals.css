@@ -193,6 +193,12 @@
   border-top: 1px solid oklch(0.35 0.03 190 / 0.6);
 }
 
+@media (pointer: coarse) {
+  .cursor-trail {
+    display: none;
+  }
+}
+
 .profile-orbit {
   animation: orbit-pulse 5s ease-in-out infinite;
 }
