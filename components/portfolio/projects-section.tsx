@@ -6,12 +6,11 @@ import { ProjectCard } from "./project-card"
 
 const featuredProjects = [
   {
-    title: "DevLens (AI Codebase Analyzer)",
+    title: "SiteSentinel (AI-Powered Construction Safety System)",
     description:
-      "AI-powered repository analysis platform that visualizes dependency graphs, identifies risky files, generates onboarding paths, and explains large codebases using Gemini AI.",
-    techStack: ["Node.js", "Express", "Gemini AI", "Groq AI", "D3.js", "Turso", "JWT"],
-    githubUrl: "https://github.com/Souvagya06/Dev-Lens",
-    liveUrl: "https://dev-lens-topaz.vercel.app",
+      "AI-powered construction site safety platform combining real-time PPE detection, face recognition, automated worker attendance, and IoT-based safety alerts using YOLOv8, Raspberry Pi, and ESP32.",
+    techStack: ["Python", "YOLOv8", "PyTorch", "OpenCV", "Face Recognition", "Flask", "Raspberry Pi", "ESP32", "Turso", "Cloudinary"],
+    githubUrl: "https://github.com/Souvagya06/SiteSentinel",
   },
   {
     title: "StudyBuddy.AI",

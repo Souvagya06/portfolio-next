@@ -6,6 +6,18 @@ import { Briefcase } from "lucide-react"
 
 const experiences = [
   {
+    role: "Full Stack & AI/IoT Developer Intern",
+    company: "IEDC, Institute of Engineering and Management, Kolkata",
+    period: "Summer Internship 2026",
+    description: [
+      "Developed SiteSentinel, an AI-powered construction site safety and smart attendance system integrating YOLOv8-based PPE detection, face recognition, Raspberry Pi, ESP32, and real-time web technologies.",
+      "Implemented automated worker identification, check-in/check-out, PPE compliance monitoring, safety violation detection, and real-time alerts through buzzer and LED matrix integration.",
+      "Built and integrated the Flask backend, interactive dashboard, Turso database, Cloudinary storage, and Raspberry Pi camera streaming pipeline.",
+      "Worked on GPU-accelerated inference using PyTorch and CUDA, connecting AI-based detection with physical IoT safety mechanisms.",
+    ].join(" "),
+    skills: ["Python", "Flask", "YOLOv8", "PyTorch", "OpenCV", "Face Recognition", "Raspberry Pi", "ESP32", "Turso", "Cloudinary", "IoT", "Computer Vision", "AI/ML"],
+  },
+  {
     role: "Full Stack & IoT Developer Intern",
     company: "IEDC, Institute of Engineering and Management, Kolkata",
     period: "Winter Internship 2025",
