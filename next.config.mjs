@@ -8,6 +8,13 @@ const nextConfig = {
 
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        pathname: "/u/221105245",
+      },
+    ],
   },
 }
 

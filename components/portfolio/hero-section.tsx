@@ -124,7 +124,7 @@ export function HeroSection() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-card/80 p-2 shadow-2xl shadow-primary/10">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-secondary">
                 <Image
-                  src="/souvagya-profile.jpg"
+                  src="https://avatars.githubusercontent.com/u/221105245?v=4"
                   alt="Portrait of Souvagya Karmakar"
                   fill
                   priority
