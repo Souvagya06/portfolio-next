@@ -13,6 +13,14 @@ const featuredProjects = [
     githubUrl: "https://github.com/Souvagya06/SiteSentinel",
   },
   {
+    title: "DevLens (AI Codebase Analyzer)",
+    description:
+      "AI-powered repository analysis platform that visualizes dependency graphs, identifies risky files, generates onboarding paths, and explains large codebases using Gemini AI.",
+    techStack: ["Node.js", "Express", "Gemini AI", "Groq AI", "D3.js", "Turso", "JWT"],
+    githubUrl: "https://github.com/Souvagya06/Dev-Lens",
+    liveUrl: "https://dev-lens-topaz.vercel.app",
+  },
+  {
     title: "StudyBuddy.AI",
     description:
       "AI-powered academic platform integrating Google Classroom, LLM-based difficulty prediction, assignment analysis, and AI doubt assistance for enhanced learning.",
