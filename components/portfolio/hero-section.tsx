@@ -124,14 +124,14 @@ export function HeroSection() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-card/80 p-2 shadow-2xl shadow-primary/10">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-secondary">
                 <Image
-                  src="https://avatars.githubusercontent.com/u/221105245?v=4"
+                  src="/souvagya-portrait.png"
                   alt="Portrait of Souvagya Karmakar"
                   fill
                   priority
                   sizes="(max-width: 1024px) 80vw, 360px"
                   className="object-cover object-top grayscale-[15%] transition duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Currently building</p>
@@ -166,3 +166,4 @@ export function HeroSection() {
     </section>
   )
 }
+
