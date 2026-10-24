@@ -1,169 +1,53 @@
 "use client"
 
-import { motion, useMotionValue, useSpring } from "framer-motion"
-import { Github, Linkedin, ArrowDown, Mail } from "lucide-react"
+import { motion } from "framer-motion"
+import { Github, Linkedin, ArrowDownRight, Mail, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import dynamic from "next/dynamic"
 import Image from "next/image"
-import { useEffect } from "react"
-
-const ParticleField = dynamic(
-  () => import("./particle-field").then((mod) => mod.ParticleField),
-  { ssr: false }
-)
-
-function CursorTrail() {
-  const x = useMotionValue(-100)
-  const y = useMotionValue(-100)
-  const smoothX = useSpring(x, { stiffness: 220, damping: 28, mass: 0.25 })
-  const smoothY = useSpring(y, { stiffness: 220, damping: 28, mass: 0.25 })
-
-  useEffect(() => {
-    const handlePointerMove = (event: PointerEvent) => {
-      x.set(event.clientX)
-      y.set(event.clientY)
-    }
-
-    window.addEventListener("pointermove", handlePointerMove)
-    return () => window.removeEventListener("pointermove", handlePointerMove)
-  }, [x, y])
-
-  return (
-    <motion.div
-      aria-hidden="true"
-      className="cursor-trail fixed left-0 top-0 z-[60] h-3 w-3 rounded-full bg-primary shadow-[0_0_18px_6px_oklch(0.82_0.15_175_/_0.2)] pointer-events-none"
-      style={{ x: smoothX, y: smoothY, translateX: "-50%", translateY: "-50%" }}
-    />
-  )
-}
 
 export function HeroSection() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20"
-    >
-      <CursorTrail />
-      <ParticleField />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_35%,oklch(0.35_0.08_175_/_0.18),transparent_28%),linear-gradient(to_bottom,transparent,oklch(0.08_0.012_190_/_0.92))] pointer-events-none" />
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24">
-          <div className="max-w-3xl text-center lg:text-left">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-8 flex items-center justify-center gap-3 lg:justify-start">
-              <span className="h-px w-10 bg-primary" />
-              <span className="section-kicker">Full stack / AI systems / IoT</span>
+    <section id="home" className="hero-section relative flex min-h-[90vh] items-center overflow-hidden pb-20 pt-32">
+      <div className="container relative z-10 mx-auto px-5 md:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
+          <div className="max-w-3xl">
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }} className="mb-8 flex items-center gap-3">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              <span className="section-kicker">Developer · Builder · Problem solver</span>
             </motion.div>
-
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="display-title mb-8 font-bold text-balance">
-              Souvagya<br /><span className="gradient-text">Karmakar.</span>
+            <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .08 }} className="hero-title mb-7 text-balance font-semibold">
+              I build <span className="gradient-text">useful</span><br className="hidden sm:block" /> things with code.
             </motion.h1>
-
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mx-auto mb-9 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-              Building intelligent systems that solve real-world problems, from AI-powered platforms to connected hardware that works in the physical world.
+            <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6, delay: .18 }} className="mb-9 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              I&apos;m Souvagya Karmakar, a full-stack developer working across AI, connected devices, and thoughtful digital products.
             </motion.p>
-
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }} className="mb-12 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <a href="#projects">View Projects</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary/50 hover:bg-primary/10"
-            >
-              <a href="#contact">Contact Me</a>
-            </Button>
+            <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6, delay: .28 }} className="mb-10 flex flex-wrap items-center gap-3">
+              <Button asChild size="lg" className="rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/90">
+                <a href="#projects">Explore my work <ArrowUpRight size={17} className="ml-2" /></a>
+              </Button>
+              <a href="#contact" className="inline-flex h-11 items-center gap-2 rounded-full border border-border px-5 text-sm font-medium text-foreground transition hover:border-primary/60 hover:text-primary">Let&apos;s talk <ArrowDownRight size={16} /></a>
             </motion.div>
-
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="flex justify-center gap-5 lg:justify-start">
-            <motion.a
-              href="https://github.com/Souvagya06"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass rounded-full p-3 text-muted-foreground transition-all hover:scale-110 hover:text-primary"
-              whileHover={{ y: -3 }}
-              aria-label="GitHub"
-            >
-              <Github size={24} />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/souvagya-karmakar-4b818a389/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass rounded-full p-3 text-muted-foreground transition-all hover:scale-110 hover:text-primary"
-              whileHover={{ y: -3 }}
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} />
-            </motion.a>
-            <motion.a
-              href="mailto:souvagyakarmakar0712@gmail.com"
-              className="glass rounded-full p-3 text-muted-foreground transition-all hover:scale-110 hover:text-primary"
-              whileHover={{ y: -3 }}
-              aria-label="Email"
-            >
-              <Mail size={24} />
-            </motion.a>
-            </motion.div>
+            <div className="flex items-center gap-3">
+              <span className="mr-2 text-xs uppercase tracking-[.16em] text-muted-foreground">Find me</span>
+              <a href="https://github.com/Souvagya06" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub"><Github size={18} /></a>
+              <a href="https://www.linkedin.com/in/souvagya-karmakar-4b818a389/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn"><Linkedin size={18} /></a>
+              <a href="mailto:souvagyakarmakar0712@gmail.com" className="social-link" aria-label="Email"><Mail size={18} /></a>
+            </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92, rotate: 3 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
-          >
-            <div className="profile-orbit absolute -inset-5 rounded-[2rem] border border-primary/20" />
-            <div className="profile-orbit profile-orbit-delayed absolute -inset-10 rounded-[2.5rem] border border-accent/15" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-card/80 p-2 shadow-2xl shadow-primary/10">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-secondary">
-                <Image
-                  src="/souvagya-portrait.png"
-                  alt="Portrait of Souvagya Karmakar"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 80vw, 360px"
-                  className="object-cover object-top grayscale-[15%] transition duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Currently building</p>
-                    <p className="mt-1 text-lg font-semibold text-white">Useful intelligence</p>
-                  </div>
-                  <span className="h-3 w-3 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.8)]" />
-                </div>
+          <motion.div initial={{ opacity: 0, y: 20, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: .8, delay: .18 }} className="hero-portrait-wrap relative mx-auto w-full max-w-[410px] lg:mx-0 lg:justify-self-end">
+            <div className="hero-portrait relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+              <Image src="/souvagya-portrait.png" alt="Souvagya Karmakar" fill priority sizes="(max-width: 1024px) 86vw, 410px" className="object-cover object-top transition-transform duration-700 hover:scale-[1.025]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#11191c]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-white">
+                <div><span className="block text-xs uppercase tracking-[.18em] text-white/70">Based in</span><span className="mt-1 block text-sm font-medium">Kolkata, India</span></div>
+                <span className="rounded-full border border-white/20 bg-black/20 px-3 py-1.5 text-xs backdrop-blur">Open to opportunities</span>
               </div>
             </div>
-            <div className="absolute -right-5 top-5 glass rounded-xl px-4 py-3 shadow-xl">
-              <p className="font-mono text-xs text-muted-foreground">AVAILABLE FOR WORK</p>
-              <p className="mt-1 text-sm font-medium">AI + IoT systems</p>
-            </div>
+            <div className="portrait-index" aria-hidden="true">SK<span> / 01</span></div>
           </motion.div>
         </div>
+        <a href="#about" className="hero-scroll hidden items-center gap-3 text-xs uppercase tracking-[.16em] text-muted-foreground lg:flex">Scroll to explore <span className="h-px w-12 bg-primary/70" /></a>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <ArrowDown className="text-muted-foreground" size={24} />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
-

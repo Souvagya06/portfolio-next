@@ -37,7 +37,7 @@ export function SkillsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section className="py-24 md:py-32 relative">
+    <section id="skills" className="py-24 md:py-32 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-linear-to-b from-background via-accent/5 to-background pointer-events-none" />
 
@@ -109,3 +109,4 @@ export function SkillsSection() {
     </section>
   )
 }
+

@@ -5,9 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
+  { name: "Work", href: "#projects" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ]
@@ -17,86 +16,31 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 24)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-3 border-b border-primary/20" : "py-5"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <motion.a
-          href="#home"
-          className="flex items-center gap-3 text-sm font-bold tracking-[0.18em] text-foreground"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background">SK</span>
-          <span className="hidden sm:inline text-muted-foreground">SOUVAGYA / 2026</span>
-        </motion.a>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item, index) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground hover:text-primary transition-colors relative group"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              {item.name}
-              <span className="absolute -bottom-2 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-            </motion.a>
-          ))}
+    <motion.nav initial={{ y: -36, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .5 }} className={`site-nav fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled ? "site-nav-scrolled" : ""}`}>
+      <div className="container mx-auto flex items-center justify-between px-5 py-4 md:px-8">
+        <a href="#home" className="flex items-center gap-3" aria-label="Souvagya Karmakar home">
+          <span className="brand-mark">S</span>
+          <span className="text-sm font-semibold tracking-wide">Souvagya<span className="text-primary">.</span></span>
+        </a>
+        <div className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => <a key={item.name} href={item.href} className="nav-link">{item.name}</a>)}
+          <a href="#contact" className="nav-cta">Get in touch <span>↗</span></a>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-foreground p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        <button className="menu-toggle md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMobileMenuOpen}>
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass mt-2 mx-4 rounded-xl overflow-hidden"
-          >
-            <div className="flex flex-col py-4">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="px-6 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        {isMobileMenuOpen && <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="mobile-nav md:hidden">
+          {navItems.map((item) => <a key={item.name} href={item.href} className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>{item.name}<span>↗</span></a>)}
+        </motion.div>}
       </AnimatePresence>
     </motion.nav>
   )
